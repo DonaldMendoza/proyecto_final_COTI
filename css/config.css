@@ -439,6 +439,7 @@ footer>p>strong{
     border: 1px solid var(--gris);
     background-color: var(--negro);
     font: var(--letraNormal);
+    color: var(--blanco);
 }
 
 .campo__field--textarea {
