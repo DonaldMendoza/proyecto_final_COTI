@@ -1,0 +1,1003 @@
+/* Nombre: Donald Mendoza Melendez
+ Num. Estudiante: 843-06-4704
+ Fecha: 4/19/2026
+ Trabajo: Avance del proyecto */
+
+/** Variables Globales **/
+:root {
+    --fuenteHeading: 'PT Sans', sans-serif;
+    --fuenteParrafo: 'Open Sans', sans-serif;
+
+    --primario: #4d0e0e;
+    --primario1: #2582af;
+    --primario2: #f4a84d;
+    --primario3: #142c7c;
+    --blanco: #ffffff;
+    --negro: #000000;
+    --gris: #e1e1e1;
+
+    --letraNormal: 1.5rem 'Audiowide';
+}
+
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+    /* ← This often fixes the "overflowing" look */
+    background-color: #f4a84d;
+}
+
+body {
+    box-sizing: border-box;
+    min-height: 100vh;
+    /* helps with full coverage */
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+/*CHHHHHHHHHHHHHHHHHHHHHHHANGES*/
+
+header {
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    place-items: center;
+    justify-content: space-between;
+    background-color: black;
+    width: 100%;
+    padding: 1rem;
+    column-gap: 1.5rem;
+}
+
+h1 {
+    font-family: 'Babylonica', sans-serif;
+    font-size: 3rem;
+    color: white;
+    margin: 0;
+    justify-content: space-between;
+    width: fit-content;
+    word-spacing: .5rem;
+    gap: 1rem;
+    text-align: center;
+    
+}
+
+h2 {
+    font-family: 'Audiowide', sans-serif;
+    font-size: 2rem;
+    color: #ff0000;
+    margin: 0;
+    justify-content: space-between;
+    width: fit-content;
+    word-spacing: .5rem;
+    gap: 1rem;
+    text-align: center;
+    text-decoration: underline;
+    -webkit-text-stroke: 1px var(--primario);
+}
+
+h3{
+    -webkit-text-stroke: 1px var(--primario);
+    color: #ff0000;
+}
+
+#logo {
+    width: 10rem;
+
+}
+
+
+small {
+    text-align: center;
+    padding-left: 25px;
+    /* Para poner informacion de copyright*/
+    font-weight: normal;
+}
+
+
+
+nav {
+    width: 100%;
+}
+
+footer {
+    background-color: var(--negro);
+
+
+}
+
+footer>p>strong{
+    -webkit-text-stroke: 1px var(--primario);
+    color: #ff0000;
+}
+
+.font {
+    font: var(--letraNormal);
+    color: var(--blanco);
+
+}
+
+#copyright {
+    font: 1rem 'Audiowide';
+    color: var(--blanco);
+    text-align: center;
+
+}
+
+.fontAnchor {
+    text-decoration: none;
+    text-align: center;
+    font: var(--letraNormal);
+    color: var(--blanco);
+}
+
+.fontAnchor a {
+    text-decoration: none;
+    color: var(--blanco);
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    /* makes links full width */
+    width: 100%;
+    background-color: var(--primario);
+
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    /* important for ul */
+    text-align: center;
+
+}
+
+.main li {
+    width: 100%;
+    border: solid var(--blanco) 0.25rem;
+
+}
+
+.main a {
+    display: block;
+    padding: 1rem;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 1.5rem;
+
+}
+
+.main a:last-child {
+    border-bottom: none;
+}
+
+.grid-container,
+.grid-container-child {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    /* Forces one column */
+    grid-auto-flow: row;
+    grid-template-areas:
+        "box-1"
+        "box-3"
+        "box-2"
+        "box-4";
+    place-items: start;
+    row-gap: 0;
+    background-color: black;
+    width: 100%;
+    max-height: 25%;
+
+}
+
+.grid-container-child-1 {
+    grid-row: 2;
+    background-color: black;
+    width: 100%;
+    box-sizing: border-box;
+    height: 100%;
+
+
+}
+
+.grid-container-child-2 {
+    grid-row: 4;
+    background-color: black;
+    width: 100%;
+    box-sizing: border-box;
+    height: 100%;
+
+
+}
+
+.grid-container-child-img-container {
+    grid-row: 1;
+    background-color: black;
+    width: 100%;
+    box-sizing: border-box;
+    height: 100%;
+
+
+}
+
+.grid-container-child-img-container-portrait {
+
+    grid-row: 3;
+    background-color: var(--negro);
+    width: 100%;
+    box-sizing: border-box;
+    height: 100%;
+
+
+}
+
+.grid-container-child-img-container-portrait>img {
+
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+
+}
+
+.grid-container-child-flex {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: black;
+    width: 100%;
+    box-sizing: border-box;
+    height: 100%;
+
+
+}
+
+.grid-container-child grid-container-child-flex p {
+    font: 1.5rem 'Audiowide';
+    background-color: black;
+    color: var(--blanco);
+    width: 100%;
+    box-sizing: border-box;
+    height: 100%;
+
+}
+
+.grid-container-child-img-container>img {
+
+    width: 100%;
+    height: 50vw;
+    object-fit: cover;
+    display: block;
+
+
+}
+
+.grid-container-child-1 p,
+.grid-container-child-2 p {
+    font: 1.5rem 'Audiowide';
+    background-color: black;
+    color: var(--blanco);
+    width: 100%;
+    box-sizing: border-box;
+    height: fit-content;
+
+}
+
+
+
+.wrapper-social {
+    max-height: 10rem;
+    text-align: center;
+}
+
+.wrapper-social img {
+    max-height: 10rem;
+}
+
+#homephoto {
+    width: 100%;
+    height: 100%;       /* Force it to be as tall as the text next to it */
+    object-fit: cover;  /* This crops the edges so there is no black space */
+    object-position: center; /* Keeps Angel centered in the frame */
+    display: block;
+}
+
+/* AfterCare CSS Starts here */
+
+.yt-container{
+    position: relative;
+    padding-bottom: 56.25%;
+    /* 16:9 ratio */
+    height: 0;
+}
+.yt-container iframe{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.grid-container-aftercare{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+
+}
+
+.grid-container-aftercare li {
+    font: 1.5rem 'Audiowide';
+    background-color: black;
+    color: var(--blanco);
+    width: 100%;
+    box-sizing: border-box;
+    height: fit-content;
+    padding: 1rem 0;
+    text-align: center;
+
+}
+
+.grid-container-aftercare h2 {
+    font-family: 'Audiowide', sans-serif;
+    font-size: 2rem;
+    color: #ff0000;
+    margin: 0;
+    justify-content: space-between;
+    width: auto;
+    word-spacing: .5rem;
+    gap: 1rem;
+    text-align: center;
+    text-decoration: underline;
+    -webkit-text-stroke: 1px var(--primario);
+    background-color: var(--negro);
+    max-height: fit-content;
+    padding: 1rem 0;
+}
+
+/*  Contacto CSS Starts here */
+
+.grid-container-contact{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto 1fr 1fr;
+    background-color: var(--negro);
+}
+
+.grid-container-contact h2{
+    padding: 1rem;
+    justify-self:  center;
+
+}
+
+.grid-container-contact p{
+    padding: 1rem;
+    justify-self:  center;
+    font: var(--letraNormal);
+    color: var(--blanco);
+    padding: 1rem;
+    text-align: center;
+
+}
+
+.grid-container-contact iframe{
+    aspect-ratio: 16 / 9;
+    padding: 1rem;
+    justify-self:  center;
+    width: 100%;
+    border: none;
+    height: 100%;
+
+}
+
+
+.formulario {
+    background-color: var(--blanco);
+    margin: 0;
+    width: auto;
+    padding: 2rem;
+    background-color: var(--primario);
+    height: fit-content;
+}
+
+
+::-webkit-input-placeholder { color: var(--blanco); }
+
+.campo {
+    display: flex;
+    margin-bottom: 2rem;
+    
+}
+
+.campo__label {
+    flex: 0 0 9rem;
+    text-align: right;
+    padding-right: 2rem;
+    height: 2rem;
+}
+
+.campo__field {
+    flex: 1;
+    border: 1px solid var(--gris);
+    background-color: var(--negro);
+    font: var(--letraNormal);
+}
+
+.campo__field--textarea {
+    height: 20rem;
+    color: var(--blanco);
+}
+
+.boton {
+    display: block;
+    color: var(--blanco);
+    text-align: center;
+    padding: 1rem 3rem;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    border: none;
+    font: var(--letraNormal);
+}
+
+.boton--primario {
+    background-color: var(--negro);
+    width: stretch;
+    border: solid 1px var(--blanco);
+}
+
+/* font: var(--letraNormal);
+    background-color: var(--negro);
+    color: var(--blanco); */
+
+/* Base styles (Mobile) go here - No media query needed */
+
+/* Tablet / Small Devices (~768px) */
+@media (min-width: 48em) {
+    /* Your styles for tablets and up */
+
+    header {
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        place-items: center;
+        justify-content: space-between;
+        background-color: black;
+        width: 100%;
+        padding: 1rem;
+        column-gap: 1.5rem;
+    }
+
+    h1 {
+        font-family: 'Babylonica', sans-serif;
+        font-size: 4.5rem;
+        color: white;
+        margin: 0;
+        justify-content: space-between;
+        width: fit-content;
+        word-spacing: .5rem;
+        gap: 1rem;
+        text-align: center;
+        /*font-size: clamp(1.2rem,calc(1.2rem + 4vw), 15rem);*/
+        /*display: flex;*/
+        /* text-align: justify; */
+    }
+
+    nav {
+        width: 100%;
+    }
+
+    .main {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        width: 100%;
+        background-color: var(--primario);
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+    }
+
+    .main li {
+        flex: 1 1 auto;
+        min-width: 0;
+        border: solid var(--blanco) 0.25rem;
+        box-sizing: border-box;
+        flex-basis: min-content;
+
+    }
+
+    .main a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        font-size: 1.5rem;
+        height: 100%;
+    }
+
+
+
+    .main a:last-child {
+        border-bottom: none;
+    }
+
+    /* AfterCareQueries, Small Devices (~768px) start here */
+    .grid-container-aftercare{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+
+    }
+
+    .grid-container-aftercare li {
+        font: 1.7rem 'Audiowide';
+        background-color: black;
+        color: var(--blanco);
+        width: 100%;
+        box-sizing: border-box;
+        height: fit-content;
+        padding: 1rem 0;
+        text-align: center;
+
+    }
+
+    .grid-container-aftercare h2 {
+        font-family: 'Audiowide', sans-serif;
+        font-size: 2rem;
+        color: #ff0000;
+        margin: 0;
+        justify-content: space-between;
+        width: auto;
+        word-spacing: .5rem;
+        gap: 1rem;
+        text-align: center;
+        text-decoration: underline;
+        -webkit-text-stroke: 1px var(--primario);
+        background-color: var(--negro);
+        max-height: fit-content;
+        padding: 1rem 0;
+    }
+    
+}
+
+
+
+
+
+
+/* Desktop / Large Devices (~992px) */
+@media (min-width: 62em) {
+    /* Your styles for desktops and up */
+
+    header {
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        place-items: center;
+        justify-content: space-between;
+        background-color: black;
+        width: 100%;
+        padding: 1rem;
+        column-gap: 1.5rem;
+    }
+
+    h1 {
+        font-family: 'Babylonica', sans-serif;
+        font-size: 6rem;
+        color: white;
+        margin: 0;
+        justify-content: space-between;
+        width: fit-content;
+        word-spacing: 1.5rem;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    nav {
+        width: 100%;
+    }
+
+    .main {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        width: 100%;
+        background-color: var(--primario);
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+    }
+
+    .main li {
+        flex: 1 1 auto;
+        min-width: 0;
+        border: solid var(--blanco) 0.25rem;
+        box-sizing: border-box;
+        flex-basis: min-content;
+
+    }
+
+    .main a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        font-size: 1.5rem;
+        height: 100%;
+    }
+
+
+
+    .main a:last-child {
+        border-bottom: none;
+    }
+
+    .grid-container {
+
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Add this to ensure two columns exist */
+        place-items: start;
+        row-gap: 0;
+        background-color: black;
+        width: 100%;
+        max-height: none;
+        height: auto;
+
+
+    }
+
+    .grid-container-child-1, 
+    .grid-container-child-2 {
+        line-height: 1.6;
+        padding: 2rem; 
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .grid-container-child-1 {
+        grid-column: 2;
+        grid-row: 3;
+        background-color: black;
+        width: 100%;
+        box-sizing: border-box;
+        height: 100%;
+
+
+    }
+
+    .grid-container-child-2 {
+        grid-column: 2;
+        grid-row: 2;
+        background-color: black;
+        width: 100%;
+        box-sizing: border-box;
+        height: 100%;
+
+
+    }
+
+    .grid-container-child-img-container {
+        grid-column: 1 / span 2;
+        background-color: black;
+        width: 100%;
+        box-sizing: border-box;
+        height: 100%;
+
+
+    }
+
+    .grid-container-child-img-container-portrait {
+        grid-column: 1;
+        grid-row: 2 / span 2;
+        background-color: black;
+        width: 100%;
+        box-sizing: border-box;
+        height: 100%;
+
+
+    }
+
+    .grid-container-child-1 p,
+    .grid-container-child-2 p {
+        line-height: 1.6;
+
+    }
+
+    /* AfterCareQueries, Large Devices Desktop (~992px) start here */
+    .grid-container-aftercare{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+
+    }
+
+    .grid-container-aftercare li {
+        font: 2rem 'Audiowide';
+        background-color: black;
+        color: var(--blanco);
+        width: 100%;
+        box-sizing: border-box;
+        height: fit-content;
+        padding: 1rem 0;
+        text-align: center;
+
+    }
+
+    .grid-container-aftercare h2 {
+        font-family: 'Audiowide', sans-serif;
+        font-size: 2.5rem;
+        color: #ff0000;
+        margin: 0;
+        justify-content: space-between;
+        width: auto;
+        word-spacing: .5rem;
+        gap: 1rem;
+        text-align: center;
+        text-decoration: underline;
+        -webkit-text-stroke: 1px var(--primario);
+        background-color: var(--negro);
+        max-height: fit-content;
+        padding: 1rem 0;
+    }
+
+    /* Contact Mediaqueries start here */
+
+    .grid-container-contact{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        background-color: var(--negro);
+        grid-template-rows: auto;
+    }
+
+    .grid-container-contact h2{
+        grid-column: 1 / span 2;
+        background-color: var(--negro);
+    }
+
+
+    .grid-container-contact .formulario{
+        grid-column: 1 /span 2;
+    }
+
+    .grid-container-contact iframe{
+        grid-column: auto;
+        grid-row: 3;
+        aspect-ratio: 16 / 9;
+        padding: 1rem;
+        justify-self:  center;
+        width: 100%;
+        border: none;
+        height: 100%;
+
+    }
+
+    .grid-container-contact p{
+        grid-column: 1 / span 2;
+        grid-row: 4;
+        padding: 1rem;
+        justify-self:  center;
+        width: 100%;
+        border: none;
+        height: fit-content;
+        font-size: 2rem;
+        text-align: left;
+
+    }
+
+}
+
+
+/* Extra Large Desktop (~1200px) */
+@media (min-width: 75em) {
+
+    /* Your styles for large monitors and up */
+    header {
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        place-items: center;
+        justify-content: space-between;
+        background-color: black;
+        width: 100%;
+        padding: 1rem;
+        column-gap: 1.5rem;
+    }
+
+    h1 {
+        font-family: 'Babylonica', sans-serif;
+        font-size: 7.5rem;
+        color: white;
+        margin: 0;
+        justify-content: space-between;
+        width: fit-content;
+        word-spacing: 1.1rem;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    nav {
+        width: 100%;
+    }
+
+    .main {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        width: 100%;
+        background-color: var(--primario);
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+    }
+
+    .main li {
+        flex: 1 1 auto;
+        min-width: 0;
+        border: solid var(--blanco) 0.25rem;
+        box-sizing: border-box;
+        flex-basis: min-content;
+
+    }
+
+    .main a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        font-size: 1.5rem;
+        height: 100%;
+    }
+
+
+
+    .main a:last-child {
+        border-bottom: none;
+    }
+
+    .grid-container {
+
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Add this to ensure two columns exist */
+        place-items: start;
+        row-gap: 0;
+        background-color: black;
+        width: 100%;
+        max-height: none;
+        height: auto;
+
+
+    }
+
+    .grid-container-child-1, 
+    .grid-container-child-2 {
+        line-height: 1.6;
+        padding: 2rem; /* Adjust this to change the "air" around the text */
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Vertically centers the text next to the photo */
+    }
+
+    .grid-container-child-1 {
+        grid-column: 2;
+        grid-row: 3;
+        background-color: black;
+        width: 100%;
+        box-sizing: border-box;
+        height: 100%;
+
+
+    }
+
+    .grid-container-child-2 {
+        grid-column: 2;
+        grid-row: 2;
+        background-color: black;
+        width: 100%;
+        box-sizing: border-box;
+        height: 100%;
+
+
+    }
+
+    .grid-container-child-img-container {
+        grid-column: 1 / span 2;
+        background-color: black;
+        width: 100%;
+        box-sizing: border-box;
+        height: 100%;
+
+
+    }
+
+    .grid-container-child-img-container-portrait {
+        grid-column: 1;
+        grid-row: 2 / span 2;
+        background-color: black;
+        width: 100%;
+        box-sizing: border-box;
+        height: 100%;
+
+
+    }
+
+    .grid-container p {
+        font-size: 3rem;
+        line-height: 2;
+    }
+
+    .grid-container h2 {
+        font-size: 3.5rem;
+        color: #ff0000;
+        font-weight: bolder;
+        -webkit-text-stroke: 1px var(--primario);
+        text-align: center;
+    }
+
+    /* AfterCareQueries, Large Devices Desktop (~992px) start here */
+    .grid-container-aftercare{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+
+    }
+
+    .grid-container-aftercare li {
+        font: 3rem 'Audiowide';
+        background-color: black;
+        color: var(--blanco);
+        width: 100%;
+        box-sizing: border-box;
+        height: fit-content;
+        padding: 1rem 0;
+        text-align: center;
+
+    }
+
+    .grid-container-aftercare h2 {
+        font-family: 'Audiowide', sans-serif;
+        font-size: 3.5rem;
+        color: #ff0000;
+        margin: 0;
+        justify-content: space-between;
+        width: auto;
+        word-spacing: .5rem;
+        gap: 1rem;
+        text-align: center;
+        text-decoration: underline;
+        -webkit-text-stroke: 1px var(--primario);
+        background-color: var(--negro);
+        max-height: fit-content;
+        padding: 1rem 0;
+    }
+
+}
