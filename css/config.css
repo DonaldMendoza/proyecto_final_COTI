@@ -9,7 +9,7 @@
     --fuenteParrafo: 'Open Sans', sans-serif;
 
     --primario: #4d0e0e;
-    --primario1: #2582af;
+    --primario1: #2582af;           /* variables globales para reusar */
     --primario2: #f4a84d;
     --primario3: #142c7c;
     --blanco: #ffffff;
@@ -25,36 +25,33 @@ body {
     margin: 0;
     padding: 0;
     width: 100%;
-    overflow-x: hidden;
-    /* ← This often fixes the "overflowing" look */
-    background-color: #f4a84d;
+    overflow-x: hidden;                 /* Corta el contenido que se exceda de espacio en el eje de X */
+    background-color: var(--negro);
 }
 
 body {
     box-sizing: border-box;
     min-height: 100vh;
-    /* helps with full coverage */
+    /* fuerza a que los margin y padding esten dentro de la caja y exceda las dimensiones */
 }
 
 *,
 *:before,
 *:after {
-    box-sizing: inherit;
+    box-sizing: inherit;  /* Selector universal, hace que todos los elementos hereden el box sizing del body */
 }
 
 * {
     padding: 0;
-    margin: 0;
+    margin: 0;          /*Selector universal para quitar todos los margin y padding  */
 }
-
-/*CHHHHHHHHHHHHHHHHHHHHHHHANGES*/
 
 header {
     display: grid;
-    grid-template-columns: 2fr 2fr;
+    grid-template-columns: 1fr 1fr;
     place-items: center;
     justify-content: space-between;
-    background-color: black;
+    background-color: black;            /* Cree un grid ocn un row y 2 columnas */
     width: 100%;
     padding: 1rem;
     column-gap: 1.5rem;
@@ -65,7 +62,7 @@ h1 {
     font-size: 3rem;
     color: white;
     margin: 0;
-    justify-content: space-between;
+    justify-content: space-between;         /* Las propiedades que le estoy dando al heading 1 que se encuentra en el header */
     width: fit-content;
     word-spacing: .5rem;
     gap: 1rem;
@@ -78,7 +75,7 @@ h2 {
     font-size: 2rem;
     color: #ff0000;
     margin: 0;
-    justify-content: space-between;
+    justify-content: space-between;     /* Propiedades que le doy a todos los heading 2 del documento*/
     width: fit-content;
     word-spacing: .5rem;
     gap: 1rem;
@@ -89,83 +86,79 @@ h2 {
 
 h3{
     -webkit-text-stroke: 1px var(--primario);
-    color: #ff0000;
+    color: #ff0000;                         /* Propiedades que le doy a todos los heading 3 del documento*/
 }
 
 #logo {
-    width: 10rem;
+    width: 10rem;           /* Tamaño del logo del header*/
 
 }
 
 
 small {
     text-align: center;
-    padding-left: 25px;
-    /* Para poner informacion de copyright*/
+    padding-left: 25px; /* Para poner informacion de copyright, altero altero el padding un poco*/    
     font-weight: normal;
 }
 
 
 
 nav {
-    width: 100%;
+    width: 100%; /* Hago que la barra de nav ocupe todo el ancho */
 }
 
 footer {
-    background-color: var(--negro);
+    background-color: var(--negro); /* Cambio el color de fondo a negro */
 
 
 }
 
 footer>p>strong{
     -webkit-text-stroke: 1px var(--primario);
-    color: #ff0000;
+    color: #ff0000;             /* Le asigno el valor del stroke del texto del footer, en especifico el strong */
 }
 
 .font {
     font: var(--letraNormal);
-    color: var(--blanco);
+    color: var(--blanco);        /* Clase que utilize para cambiar color y tipo de font */
 
 }
 
 #copyright {
     font: 1rem 'Audiowide';
-    color: var(--blanco);
+    color: var(--blanco); /* Dandole valores al texto del id */
     text-align: center;
 
 }
 
 .fontAnchor {
     text-decoration: none;
-    text-align: center;
+    text-align: center;         /* Dandole valores a la clase FontAnchor */
     font: var(--letraNormal);
     color: var(--blanco);
 }
 
 .fontAnchor a {
     text-decoration: none;
-    color: var(--blanco);
+    color: var(--blanco);   
 }
 
 .main {
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    /* makes links full width */
     width: 100%;
-    background-color: var(--primario);
-
+    background-color: var(--primario);  /* Modificando el nav */
     margin: 0;
     padding: 0;
     list-style: none;
-    /* important for ul */
     text-align: center;
 
 }
 
 .main li {
     width: 100%;
-    border: solid var(--blanco) 0.25rem;
+    border: solid var(--blanco) 0.25rem; /*  Modificando la lista */
 
 }
 
@@ -181,12 +174,12 @@ footer>p>strong{
 }
 
 .main a:last-child {
-    border-bottom: none;
+    border-bottom: none;    /* Quitando el borde de abajo al ultimo child */
 }
 
 .grid-container,
 .grid-container-child {
-    width: 100%;
+    width: 100%;        /* Dandole dimensiones a esta clase */
     max-width: 100%;
     box-sizing: border-box;
 }
@@ -198,7 +191,7 @@ footer>p>strong{
     grid-auto-flow: row;
     grid-template-areas:
         "box-1"
-        "box-3"
+        "box-3"                 /* Haciendo un grid para la home page de 1 sola columna */
         "box-2"
         "box-4";
     place-items: start;
@@ -212,7 +205,7 @@ footer>p>strong{
 .grid-container-child-1 {
     grid-row: 2;
     background-color: black;
-    width: 100%;
+    width: 100%;                /* Dandole orden en el grid a los childs */
     box-sizing: border-box;
     height: 100%;
 
@@ -255,14 +248,14 @@ footer>p>strong{
     width: 100%;
     height: auto;
     object-fit: cover;
-    display: block;
+    display: block;         /* Imagen usa todo el width disponible */
 
 }
 
 .grid-container-child-flex {
     display: flex;
     flex-wrap: wrap;
-    background-color: black;
+    background-color: black;    /* Para subdividir una celda de un grid anterior */
     width: 100%;
     box-sizing: border-box;
     height: 100%;
@@ -274,7 +267,7 @@ footer>p>strong{
     font: 1.5rem 'Audiowide';
     background-color: black;
     color: var(--blanco);
-    width: 100%;
+    width: 100%;                /*  Dandole valores a los parrafos de flex*/
     box-sizing: border-box;
     height: 100%;
 
@@ -285,8 +278,9 @@ footer>p>strong{
     width: 100%;
     height: 50vw;
     object-fit: cover;
-    display: block;
-
+    display: block;         /* dandole valores al child la clase */
+    padding: 1rem;
+    border-radius: 3rem;
 
 }
 
@@ -295,42 +289,47 @@ footer>p>strong{
     font: 1.5rem 'Audiowide';
     background-color: black;
     color: var(--blanco);
-    width: 100%;
+    width: 100%;                        /* Dando valores a ciertos parrafos */
     box-sizing: border-box;
     height: fit-content;
+    padding: 1rem;
 
 }
 
 
 
 .wrapper-social {
-    max-height: 10rem;
+    max-height: 10rem;      /* contenedor de red social */
     text-align: center;
 }
 
 .wrapper-social img {
-    max-height: 10rem;
+    max-height: 10rem;      
 }
 
 #homephoto {
     width: 100%;
-    height: 100%;       /* Force it to be as tall as the text next to it */
-    object-fit: cover;  /* This crops the edges so there is no black space */
-    object-position: center; /* Keeps Angel centered in the frame */
+    height: 100%;       /* Dandole max altura y ancho */
+    object-fit: fill;  
+    object-position: center; /* Centra la imagen */
     display: block;
+    padding: 1rem;
+    border-radius: 3rem;
+
 }
 
 /* AfterCare CSS Starts here */
 
 .yt-container{
     position: relative;
-    padding-bottom: 56.25%;
-    /* 16:9 ratio */
-    height: 0;
+    padding-bottom: 56.25%; /* 16:9 ratio, contenedor de video de youtube */
+    width: 90%;          
+    padding: 25%;
+    margin: 5%;
 }
 .yt-container iframe{
     position: absolute;
-    top: 0;
+    top: 0;             /* Hago que oucpe todo el espacio disponible en posicion absoluta */
     left: 0;
     width: 100%;
     height: 100%;
@@ -339,7 +338,7 @@ footer>p>strong{
 
 .grid-container-aftercare{
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr;     /* Hago un grid de una columna */
     grid-template-rows: auto;
 
 }
@@ -363,7 +362,7 @@ footer>p>strong{
     margin: 0;
     justify-content: space-between;
     width: auto;
-    word-spacing: .5rem;
+    word-spacing: .5rem;                /* Dando valores al heading 2 de esta clase */
     gap: 1rem;
     text-align: center;
     text-decoration: underline;
@@ -377,8 +376,8 @@ footer>p>strong{
 
 .grid-container-contact{
     display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto 1fr auto 1fr 1fr;
+    grid-template-columns: 1fr;         /*  Hago un grid de una sola columna pa la pagina de Contact Us*/
+    grid-template-rows: auto;
     background-color: var(--negro);
 }
 
@@ -401,7 +400,7 @@ footer>p>strong{
 .grid-container-contact iframe{
     aspect-ratio: 16 / 9;
     padding: 1rem;
-    justify-self:  center;
+    justify-self:  center;      /* Modificando el video de YT embedded */
     width: 100%;
     border: none;
     height: 100%;
@@ -411,15 +410,16 @@ footer>p>strong{
 
 .formulario {
     background-color: var(--blanco);
-    margin: 0;
-    width: auto;
+    margin: 2rem;
+    width: auto;                        /* Dandole valores al formulario de contact us */
     padding: 2rem;
     background-color: var(--primario);
     height: fit-content;
+    border-radius: .5rem;
 }
 
 
-::-webkit-input-placeholder { color: var(--blanco); }
+::-webkit-input-placeholder { color: var(--blanco); } /* Cambia el color de los placeholder en el formulario */
 
 .campo {
     display: flex;
@@ -440,6 +440,7 @@ footer>p>strong{
     background-color: var(--negro);
     font: var(--letraNormal);
     color: var(--blanco);
+    width: 100%;
 }
 
 .campo__field--textarea {
@@ -453,7 +454,7 @@ footer>p>strong{
     text-align: center;
     padding: 1rem 3rem;
     font-size: 1.8rem;
-    text-transform: uppercase;
+    text-transform: uppercase; /* Modifico botones */
     font-weight: 700;
     margin-bottom: 2rem;
     border: none;
@@ -466,21 +467,258 @@ footer>p>strong{
     border: solid 1px var(--blanco);
 }
 
-/* font: var(--letraNormal);
-    background-color: var(--negro);
-    color: var(--blanco); */
+.grid-artprofile{
+    display: grid;
+    grid-template-columns: 1fr;  /* Hago un grid de una columna */
+    width: auto;
+}
 
-/* Base styles (Mobile) go here - No media query needed */
+.grid-artprofile img{
+    width: 100%;
+    padding: 1rem;
+    border-radius: 3rem;
+}
+
+.grid-artprofile p{
+    font: 1.2rem 'Audiowide';
+    background-color: black;
+    color: var(--blanco);
+    width: 100%;
+    box-sizing: border-box;
+    height: fit-content;
+    margin-top: 1rem;
+    padding: 1rem;
+}
+
+.container-artprofile{
+    background-color: var(--negro);
+}
+
+.container-artprofile h2{
+    font-family: 'Audiowide', sans-serif;
+    font-size: 2rem;
+    color: #ff0000;
+    text-decoration: underline;
+    width: auto;
+    word-spacing: .5rem;
+    text-align: center;
+    background-color: var(--negro);
+    max-height: fit-content;
+    padding: 1rem;
+    text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff;
+}
+
+.container-artprofile h3{
+    font-family: 'Audiowide', sans-serif;
+    font-size: 1.75rem;
+    color: var(--blanco);
+    width: auto;
+    word-spacing: .5rem;
+    text-align: center;
+    text-decoration: none;
+    -webkit-text-stroke: 1px var(--primario);
+    background-color: var(--negro);
+    max-height: fit-content;
+    padding: 1rem;
+    text-shadow: 0 0 10px #ff0000, 0 0 20px var(--primario);
+}
+
+/* Filter empieza aquí */
+/* Aprendi a hacer el filtro de la galeria gracias al canal de este muchacho https://youtu.be/HZyV7prZbQQ?list=PLLnesCDYsM4hXsTE-4qvAMiRRNHOTGwsr  el codigo permite filtrar las imagenes, ver el tab de gallery para visualizar ejemplo */
+
+.container li{
+    list-style: none;
+}
+
+.container{
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 40px auto;
+}
+
+.container ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.container ul li {
+    letter-spacing: 1px;;
+    padding: 5px 15px;
+    cursor: pointer;
+    margin: 5px;
+    text-transform: uppercase;
+    border-bottom: 1px solid transparent;   
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: var(--blanco);
+}
+
+.container ul li.active{
+    border-color: #c70039;
+    color: #e84545;
+}
+
+.product{
+    display: flex;
+    justify-content: center;
+    align-items: center;        /* Se utilizo flex en vez de grid para el filtro, debido a la cantidad de imagenes */
+    flex-wrap: wrap;
+    width: inherit;
+}
+.product .itembox {
+    position: relative;
+    width: 400px;
+    height: 300px;
+    margin: 5px;
+    display: block;
+}
+
+.product .itembox img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    left: 0;
+    top: 0;
+    cursor: pointer;
+    border-radius: 3rem;
+}
+
+.container .product .itembox.show{
+    animation: show .5s ease 0s 1 forwards;     /* Animacion para mostrar las imagenes */
+    transform-origin: center;
+}
+
+.container .product .itembox.hide{
+    animation: hide .5s ease 0s 1 forwards; /* Animación para esconder las imagenes */
+    transform-origin: center;
+}
+
+@keyframes hide {
+    0%{
+        transform: scale(1);
+    }
+    100%{
+        transform: scale(0); /* Query para esconder  */
+        width: 0;
+        height: 0;
+        margin: 0;
+    }
+}
+
+@keyframes show {
+    0%{
+        transform: scale(0);
+        width: 0;               /* Query para enseñar  */
+        height: 0;
+        margin: 0;
+    }
+    100%{
+       transform: scale(1); 
+    }
+}
+/* Filtro acaba aqui*/
+
+/* lightbox de la gallery empieza aqui , consegui el codigo de este video https://youtu.be/uKVVSwXdLr0?list=PLLnesCDYsM4hXsTE-4qvAMiRRNHOTGwsr , basicamente oscurece la pantalla y enseña una sola foto a la vez para dar enfasis */
+#lightbox {
+    position: fixed;
+    z-index: 1000;
+    top: 0;                     /* usa el eje de z para traer el lightbox hacia alfrente */
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .8);
+    display: none;
+}
+
+#lightbox.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    padding: 1rem;
+    margin: 1rem;
+    background-color: var(--negro);
+    border: 2px solid var(--blanco);
+}
+/*lightbox de la gallery termina aqui*/
+
+/*Aesthetic CSS starts here*/
+.container-aesthetic{
+    display: grid;
+    grid-template-columns: 1fr;     /* grid de la pagina de aesthetics, una sola columna */
+    place-items: center;
+    background-color: var(--negro);
+}
+.container-aesthetic img{
+    width: 90%;
+    height: 90%;
+    margin: 1rem;           /* modificando imagen y dandole un borde redondo */
+    border-radius: 1rem;
+}
+.container-aesthetic p{
+    margin: 1rem;
+    font: 1.5rem 'Audiowide';
+    color: var(--blanco);
+}
+
+.container-aesthetic h2{
+    margin: 1rem;
+    order: -1;
+}
+
+.container-aesthetic h3{
+    margin: 1rem;
+    font-family: 'Audiowide', sans-serif;
+    font-size: 1.7rem;
+    color: #ff0000;
+    word-spacing: .5rem;
+    -webkit-text-stroke: 1px var(--primario);
+}
+.container-aesthetic li{
+    margin: 1rem;
+    font: 1.5rem 'Audiowide';
+    color: var(--blanco);
+}
+.container-aesthetic ul{
+    padding-left: 2.5rem;
+}
+
+.container-aesthetic aside{
+    display: contents; /* Use para corregir layout */
+}
+
+.container-aesthetic img:first-of-type {
+  order: 0;
+}
+
+.aesthetic-gridchild-1{
+    display: contents;  /* Use para corregir layout */
+}
+/*Aesthetic CSS ends here*/
+
+
+/* Estilos de movil acaban aqui , pagina fue escrita con movil como dispositivo principal */
 
 /* Tablet / Small Devices (~768px) */
 @media (min-width: 48em) {
-    /* Your styles for tablets and up */
+    
 
     header {
         display: grid;
         grid-template-columns: 3fr 1fr;
         place-items: center;
-        justify-content: space-between;
+        justify-content: space-between; /* Hago la columna izquierda mas grande que la derecha */
         background-color: black;
         width: 100%;
         padding: 1rem;
@@ -497,9 +735,6 @@ footer>p>strong{
         word-spacing: .5rem;
         gap: 1rem;
         text-align: center;
-        /*font-size: clamp(1.2rem,calc(1.2rem + 4vw), 15rem);*/
-        /*display: flex;*/
-        /* text-align: justify; */
     }
 
     nav {
@@ -508,8 +743,8 @@ footer>p>strong{
 
     .main {
         display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
+        flex-direction: row; /* De izquierda a derecha  */
+        flex-wrap: nowrap; /* hago un flex, fuerzo los childs en una sola linea */
         width: 100%;
         background-color: var(--primario);
         margin: 0;
@@ -545,7 +780,7 @@ footer>p>strong{
         border-bottom: none;
     }
 
-    /* AfterCareQueries, Small Devices (~768px) start here */
+    /* Codigo de la pagina AfterCare */
     .grid-container-aftercare{
     display: grid;
     grid-template-columns: 1fr;
@@ -581,13 +816,15 @@ footer>p>strong{
         max-height: fit-content;
         padding: 1rem 0;
     }
+
+    .container ul li {
+        font-size: 2rem; /* Agrandar el texto en responsive design*/
+    }
+    .container-aesthetic p{
+        font-size: 1.7rem;
+    }   
     
 }
-
-
-
-
-
 
 /* Desktop / Large Devices (~992px) */
 @media (min-width: 62em) {
@@ -597,7 +834,7 @@ footer>p>strong{
         display: grid;
         grid-template-columns: 3fr 1fr;
         place-items: center;
-        justify-content: space-between;
+        justify-content: space-between; /* Hago un grid con la celda izquierda mas grande que la derecha */
         background-color: black;
         width: 100%;
         padding: 1rem;
@@ -624,7 +861,7 @@ footer>p>strong{
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
-        width: 100%;
+        width: 100%;                        /* Le doy estilo al  a los child del flex */
         background-color: var(--primario);
         margin: 0;
         padding: 0;
@@ -662,7 +899,7 @@ footer>p>strong{
     .grid-container {
 
         display: grid;
-        grid-template-columns: 1fr 1fr; /* Add this to ensure two columns exist */
+        grid-template-columns: 1fr 1fr; /* grid con dos columnas */
         place-items: start;
         row-gap: 0;
         background-color: black;
@@ -677,7 +914,7 @@ footer>p>strong{
     .grid-container-child-2 {
         line-height: 1.6;
         padding: 2rem; 
-        display: flex;
+        display: flex;              /* Uso flex para agrupar dos child en una celda */
         flex-direction: column;
         justify-content: center;
     }
@@ -705,9 +942,9 @@ footer>p>strong{
     }
 
     .grid-container-child-img-container {
-        grid-column: 1 / span 2;
+        grid-column: 1 / span 2; /* empieza en la primera columna y se expande a dos columnas */
         background-color: black;
-        width: 100%;
+        width: 100%;                
         box-sizing: border-box;
         height: 100%;
 
@@ -716,7 +953,7 @@ footer>p>strong{
 
     .grid-container-child-img-container-portrait {
         grid-column: 1;
-        grid-row: 2 / span 2;
+        grid-row: 2 / span 2;   /* Empieza en la segunda fila y se expande a dos filas */
         background-color: black;
         width: 100%;
         box-sizing: border-box;
@@ -731,7 +968,7 @@ footer>p>strong{
 
     }
 
-    /* AfterCareQueries, Large Devices Desktop (~992px) start here */
+    /* CSS de aftervare comienza aqui para 992px  */
     .grid-container-aftercare{
     display: grid;
     grid-template-columns: 1fr;
@@ -768,7 +1005,7 @@ footer>p>strong{
         padding: 1rem 0;
     }
 
-    /* Contact Mediaqueries start here */
+    /* Contact CSS empieza aqui */
 
     .grid-container-contact{
         display: grid;
@@ -812,8 +1049,90 @@ footer>p>strong{
 
     }
 
-}
+    .grid-artprofile{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+    }
+    
+    .grid-artprofile img{
+        max-height: fit-content;
+    }
 
+    .grid-artprofile p{
+        font-size: 1.7rem;
+        
+    }
+    .container-artprofile h2{
+        font-size: 2.5rem;
+        
+    }
+    .container-artprofile h3{
+        font-size: 2rem;
+        
+    }
+    #grid-p-separator{
+        display: flex;
+        flex-direction: column; /* Use este id para que en la segunda columna de el grid, los parrafos esten uno debajo del otro en el tab de artist profiles*/
+    }
+
+    /*Aesthetic CSS empieza aqui*/
+    .container-aesthetic{
+
+        display:grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+    
+    .container-aesthetic img:first-of-type {
+        grid-row: 1; /* Asigno la celda a la primera imagen de la clase */
+    }
+
+    .aesthetic-gridchild-1{
+        display: flex;
+        grid-row: 1;        /*convierto a gridchild en flex para mantenerlos junto y les cambio la direcion para que los <p> vayan hacia abajo */
+        grid-column: 2;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .container-aesthetic aside{
+        display: flex;
+        flex-direction: column;
+        grid-row: 1 / span2;
+        grid-column: 3;
+    }
+    .aesthetic-gridchild-2{
+        grid-row: 2;
+        grid-column: 1 / span 2;
+        width: 100%;
+        height: 100%;
+        padding: 4rem;
+        place-items: center;
+    }
+    .container-aesthetic li{
+        font-size: 2rem;
+        line-height: 4rem;
+    }
+    .container-aesthetic h2{
+        font-size: 2.7rem;
+    }
+    .container-aesthetic h3{
+        font-size: 2.5rem;
+        text-align: center;
+    }
+    .container-aesthetic aside{
+        background-color: #111111d6;
+        align-items: center;
+    }
+
+    .container-aesthetic p {
+        line-height: 2rem;
+        font-size: 2rem;
+    }
+    /*Aesthetic CSS termina aqui*/
+
+}
 
 /* Extra Large Desktop (~1200px) */
 @media (min-width: 75em) {
@@ -888,7 +1207,7 @@ footer>p>strong{
     .grid-container {
 
         display: grid;
-        grid-template-columns: 1fr 1fr; /* Add this to ensure two columns exist */
+        grid-template-columns: 1fr 1fr; /* Hago grid de dos columnas */
         place-items: start;
         row-gap: 0;
         background-color: black;
@@ -902,10 +1221,10 @@ footer>p>strong{
     .grid-container-child-1, 
     .grid-container-child-2 {
         line-height: 1.6;
-        padding: 2rem; /* Adjust this to change the "air" around the text */
+        padding: 2rem; 
         display: flex;
         flex-direction: column;
-        justify-content: center; /* Vertically centers the text next to the photo */
+        justify-content: center; /* Centraliza el texto verticalmente */
     }
 
     .grid-container-child-1 {
@@ -964,7 +1283,7 @@ footer>p>strong{
         text-align: center;
     }
 
-    /* AfterCareQueries, Large Devices Desktop (~992px) start here */
+    /* AfterCare CSS empieza aqui */
     .grid-container-aftercare{
     display: grid;
     grid-template-columns: 1fr;
@@ -1001,4 +1320,33 @@ footer>p>strong{
         padding: 1rem 0;
     }
 
+    .grid-artprofile p{
+        font-size: 2rem;
+        
+    }
+    .container-artprofile h2{
+        font-size: 3rem;
+        
+    }
+    .container-artprofile h3{
+        font-size: 2.5rem;
+        
+    }
+
+    .container-aesthetic p{
+        font-size: 2.5rem;
+        line-height: 4rem;
+    }
+
+    .container-aesthetic h3{
+        font-size: 3rem;
+    }
+
+    .container-aesthetic h2{
+        font-size: 3.2rem;
+    }
+
+    .container-aesthetic li{
+        font-size: 2.5rem;
+    }
 }
